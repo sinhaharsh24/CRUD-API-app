@@ -1,0 +1,68 @@
+Learning CURD from freecodecamp
+https://www.youtube.com/watch?v=_7UQPve99r4
+⭐️ Chapters ⭐️
+⌨️ (0:00:00) Introduction
+⌨️ (0:01:34) package.json
+⌨️ (0:04:32) express framework
+⌨️ (0:09:19) npm run server
+⌨️ (0:11:19) API testing tools
+⌨️ (0:15:04) git bash
+⌨️ (0:17:19) nodemon
+⌨️ (0:20:40) mongodb setup
+⌨️ (0:31:24) product model
+⌨️ (0:41:19) create api
+⌨️ (0:48:19) read api all
+⌨️ (0:50:19) read api id
+⌨️ (0:56:19) update api
+⌨️ (1:00:19) delete api
+⌨️ (1:07:49) Form URL Encoded
+⌨️ (1:12:19) routes
+⌨️ (1:15:19) controllers
+⌨️ (1:26:19) checking and testing
+⌨️ (1:30:19) pushing to github
+
+
+first in folder open cmd
+use npm init -y
+package.json file will be created 
+in that after in scripts after tests add "serve": "node index.js";
+
+back in cmd initalise express using npm i express
+node_modules files are created along with package-lock.json
+
+in inderx.js paste the first two lines from express package which are:
+const express = require('express')
+const app = express()
+
+use app.listen(port_number) to listen on that port number 
+use app.get('/',(req,res) => {
+    res.send("hello from node API")});
+to send the node api to the localhost:port_number
+
+run npm run serve in cmd in the folder to see get the api in the web browser 
+which can be accessable through web browser
+
+use .gitignore to ignore the npm_modules file because they are bulky
+
+we have to use ctrl+C to close the server regularly in the cmd to reflect the change which is not good
+To automate this thing we should install nodemon to do this use npm i nodemon -D in the cmd
+after this in package.json file after serve add "dev": "nodemon index.js"
+re run the server by using npm run dev in the cmd
+
+go to mongoDB/atlas sign up > create a new project > create new deployment > add username ans password > set the ip
+select connect form database > select driver > install the mongodb using npm install mongodb > import mongoose 
+use npm i mongoose to import mongoose in the index.js
+paste the required code from the mongoose site and paaste thhe mongodb connection link in the code
+mongoose.connect("mongodb+srv://adminharsh:hiser%40123@firstbackenddb.4tkeg.mongodb.net/NODE-firstAPI?retryWrites=true&w=majority&appName=FirstBackendDB")
+.then(() => {
+    console.log("connection is established")
+})
+.catch(() => {
+    console.log("connection failed!!!")
+})
+
+used hiser%40123 in password insted of hiser@123 as it contains @ which shows an error
+lastly use npm run dev to connect the mongoDB to the nodejs server
+
+later create a productmodel file named as product.model.js in the models folder which sould be in same directory
+add the differents attributes in the file after importing mongoose and later export the products
